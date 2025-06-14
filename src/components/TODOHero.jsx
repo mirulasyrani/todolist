@@ -1,15 +1,9 @@
-// src/components/TODOHero.jsx
-function TODOHero({ todos_completed, total_todos }) {
+export default function TODOHero({ todos_completed, total_todos }) {
   return (
-    <section>
-      <div>
-        <p>Task Done</p>
-        <p>Keep it up</p>
-      </div>
-      <div>
-        {todos_completed}/{total_todos}
-      </div>
+    <section className="todo-hero">
+      <h2>Todos Summary</h2>
+      <p>Completed: {todos_completed}</p>
+      <p>Total: {total_todos}</p>
     </section>
   );
 }
-export default TODOHero;

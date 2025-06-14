@@ -1,28 +1,24 @@
-// src/components/Form.jsx
-
-function Form() {
+export default function Form({ setTodos }) {
   const handleSubmit = (event) => {
     event.preventDefault();
-    // reset the form
+    const value = event.target.todo.value.trim();
+    if (!value) return;
+
+    setTodos((prevTodos) => [
+      ...prevTodos,
+      {
+        title: value,
+        id: self.crypto.randomUUID(),
+        is_completed: false,
+      },
+    ]);
     event.target.reset();
   };
+
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <label htmlFor="todo">
-        <input
-          type="text"
-          name="todo"
-          id="todo"
-          placeholder="Write your next task"
-        />
-      </label>
-      <button>
-        <span className="visually-hidden">Submit</span>
-        <svg>
-          <path d="" />
-        </svg>
-      </button>
+      <input type="text" name="todo" placeholder="Add a new task" required />
+      <button type="submit">Add</button>
     </form>
   );
 }
-export default Form;
